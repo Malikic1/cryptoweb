@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+      integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+    <title>crypto</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Kablammo&family=Kelly+Slab&display=swap");
+      .logo {
+        font-family: "Kablammo", cursives;
+      }
+      .logo2 {
+        font-family: "Kelly Slab", cursives;
+        color: rgb(152, 84, 216);
+      }
+    </style>
+  </head>
+  <body class="text-light bg-dark">
+    <header class="flex justify-between px-2 md:px-4 lg:px-8 py-4">
+      <section class="w-2/3 flex justify-between">
+        <div>
+          <h1 class="text-4xl text-blueviolet">
+            <b class="logo">3</b><b class="logo2">crypto</b>
+          </h1>
+        </div>
+        <div>
+          <h2 class="text-xl font-semibold">Hello Fahim</h2>
+          <p class="text-sm text-whitesmoke pt-2">Welcome to 3crypto</p>
+        </div>
+        <div class="self-center">
+          <p class="absolute ml-2 mt-1">
+            <i
+              class="fa-solid fa-magnifying-glass text-whitesmoke text-blueviolet"
+            ></i>
+          </p>
+          <p>
+            <input
+              type="text"
+              name=""
+              id=""
+              class="bg-darkgrey pl-8 pr-2 rounded-md py-1 text-blueviolet"
+              placeholder="Search Coin"
+            />
+          </p>
+        </div>
+      </section>
+      <div class="flex self-center gap-x-2">
+        <p class="text-lg font-semibold">Fahim</p>
+        <p><i class="fa-solid fa-user bg-darkgrey xl px-3 py-2"></i></p>
+      </div>
+      <div class="md:hidden">
+        <button id="menu_btn">
+          <i class="fa-solid fa-bars text-2xl text-blueviolet"></i>
+        </button>
+      </div>
+    </header>
+    <main class="mt-6 flex">
+      <section>
+        <nav
+          class="w-12 bg-darkgrey text-center mt-20 px-4 flex flex-col gap-y-2 text-dark py-6"
+          style="
+            border-top-right-radius: 10rem;
+            border-bottom-right-radius: 10rem;
+          "
+        >
+          <button class="">
+            <i class="fa-solid fa-bars text-2xl"></i>
+          </button>
+          <button class="">
+            <i class="fa-solid fa-bars text-2xl"></i>
+          </button>
+          <button class="">
+            <i class="fa-solid fa-bars text-2xl"></i>
+          </button>
+          <button class="">
+            <i class="fa-solid fa-bars text-2xl"></i>
+          </button>
+          <button class="">
+            <i class="fa-solid fa-bars text-2xl"></i>
+          </button>
+          <button class="t">
+            <i class="fa-solid fa-bars text-2xl"></i>
+          </button>
+          <button class="px">
+            <i class="fa-solid fa-bars text-2xl"></i>
+          </button>
+          <button class="px">
+            <i class="fa-solid fa-bars text-2xl"></i>
+          </button>
+          <button class="">
+            <i class="fa-solid fa-bars text-2xl"></i>
+          </button>
+          <button class="t">
+            <i class="fa-solid fa-bars text-2xl"></i>
+          </button>
+        </nav>
+      </section>
+      <section class="w-2/3">
+        <div>
+          <canvas></canvas>
+        </div>
+        <div>
+          <table class="w-full text-sm border-none">
+            <thead>
+              <tr class="bg-darkgrey rounded-sm border border-transtext-sm">
+                <td class="p-2 text-whitesmoke">NAME</td>
+                <td class="text-right text-whitesmoke">PRICE</td>
+                <td class="text-right text-whitesmoke">24H</td>
+                <td class="text-right text-whitesmoke hidden es:block">
+                  MARKET CAP
+                </td>
+                <td class="text-right pr-3 text-whitesmoke">TRADE</td>
+              </tr>
+            </thead>
+            <tbody class="font-semibold text-sm">
+              <tr class="bg-darkgrey rounded-sm border-trans border-b">
+                <td class="p-2 esm:p-3">
+                  <i
+                    class="fa-solid fa-bitcoin-sign px-2 py-1 bg-blueviolet rounded-full"
+                    style="color: gold"
+                  ></i>
+                  Bitcoin (BTC)
+                </td>
+                <td class="text-right"><span id="bitprice"></span></td>
+                <td class="text-right"><span id="bit_change"></span></td>
+                <td class="text-right hidden es:block es:pt-3">
+                  $ <span id="bitcap"></span>
+                </td>
+                <td class="text-right pr-1 esm:pr-3">
+                  <a
+                    href=""
+                    class="bg-blueviolet border border-blueviolet rounded-sm px-3 esm:px-5 py-1"
+                    >Trade</a
+                  >
+                </td>
+              </tr>
+              <tr class="bg-darkgrey rounded-sm border-trans border-b">
+                <td class="p-2 esm:p-3">
+                  <i
+                    class="fa-brands fa-ethereum px-2 py-1 bg-blueviolet rounded-full"
+                  ></i>
+                  Ethereum (ETH)
+                </td>
+                <td class="text-right"><span id="ethprice"></span></td>
+                <td class="text-right"><span id="eth_change"></span></td>
+                <td class="text-right hidden es:block es:pt-3">
+                  $ <span id="ethcap"></span>
+                </td>
+                <td class="text-right pr-1 esm:pr-3">
+                  <a
+                    href=""
+                    class="bg-blueviolet border border-blueviolet rounded-sm px-3 esm:px-5 py-1"
+                    >Trade</a
+                  >
+                </td>
+              </tr>
+              <tr class="bg-darkgrey rounded-sm border-trans border-b">
+                <td class="p-2 esm:p-3">
+                  <i
+                    class="fa-solid fa-litecoin-sign px-2 py-1 bg-blueviolet rounded-full"
+                    style="color: lightblue"
+                  ></i>
+                  Litecoin (LTC)
+                </td>
+                <td class="text-right"><span id="liteprice"></span></td>
+                <td class="text-right"><span id="lite_change"></span></td>
+                <td class="text-right hidden es:block es:pt-3">
+                  $ <span id="litecap"></span>
+                </td>
+                <td class="text-right pr-1 esm:pr-3">
+                  <a
+                    href=""
+                    class="bg-blueviolet border border-blueviolet rounded-sm px-3 esm:px-5 py-1"
+                    >Trade</a
+                  >
+                </td>
+              </tr>
+              <tr class="bg-darkgrey rounded-sm border-trans border-b">
+                <td class="p-2 esm:p-3">Polkadot (DOT)</td>
+                <td class="text-right"><span id="polkprice"></span></td>
+                <td class="text-right"><span id="polk_change"></span></td>
+                <td class="text-right hidden es:block es:pt-3">
+                  $ <span id="polkcap"></span>
+                </td>
+                <td class="text-right px-1 esm:pr-3">
+                  <a
+                    href=""
+                    class="bg-blueviolet border border-blueviolet rounded-sm px-3 esm:px-5 py-1"
+                    >Trade</a
+                  >
+                </td>
+              </tr>
+              <tr class="bg-darkgrey rounded-sm border-trans border-b">
+                <td class="p-2 esm:p-3">Chainlink (LINK)</td>
+                <td class="text-right"><span id="chainprice"></span></td>
+                <td class="text-right"><span id="chain_change"></span></td>
+                <td class="text-right hidden es:block">
+                  $ <span id="chaincap"></span>
+                </td>
+                <td class="text-right pr-1 sm:pr-3">
+                  <a
+                    href=""
+                    class="bg-blueviolet border border-blueviolet rounded-sm px-3 esm:px-5 py-1"
+                    >Trade</a
+                  >
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <section>
+        <div class="p-4 bg-darkgrey w-64 rounded-md">
+          <div class="flex justify-between">
+            <p class="font-semibold text-xl">Balances</p>
+            <p>
+              <i
+                class="fa-solid fa-plus bg-blueviolet px-2 py-1 font-semibold rounded-sm"
+              ></i>
+            </p>
+          </div>
+          <p class="mt-6">
+            <span class="text-blueviolet text-xl">$</span
+            ><span class="relative -top-1 text-sm"> Dollar</span>
+          </p>
+          <p class="text-2xl text-blueviolet font-semibold mb-4">9784.79</p>
+
+          <div class="mt-12">
+            <div class="bg-blueviolet w-full h-32 rounded-md p-3">
+              <div class="flex relative left-40">
+                <p class="w-6 h-6 bg-light rounded-full"></p>
+                <p class="w-6 h-6 bg-dark -ml-3 rounded-full"></p>
+              </div>
+              <div class="mt-12">
+                <p class="flex text-whitesmoke">
+                  <small>mm&nbsp;</small>
+                  <small>&nbsp;yr</small>
+                </p>
+                <p class="text-lg font-semibold -mt-2">05/25</p>
+              </div>
+            </div>
+            <div
+              class="bg-whitesmoke w-56 h-32 rounded-md p-3 absolute -mt-28"
+              style="transform: rotate(30deg)"
+            >
+              <div class="flex relative left-40">
+                <p class="w-6 h-6 bg-light rounded-full"></p>
+                <p class="w-6 h-6 bg-dark -ml-3 rounded-full"></p>
+              </div>
+              <div class="mt-12">
+                <p class="flex text-whitesmoke">
+                  <small>mm&nbsp;</small>
+                  <small>&nbsp;yr</small>
+                </p>
+                <p class="text-lg font-semibold -mt-2">05/25</p>
+              </div>
+            </div>
+            <br /><br />
+          </div>
+        </div>
+      </section>
+    </main>
+    <br /><br /><br />
+    <footer class="bg-darkgrey px-4 lg:px-12 py-2 text-center">
+      <h1 class="text-3xl m-auto md:m-0 text-blueviolet font-bold logo">
+        <b class="logo">3</b><b class="logo2">crypto</b>
+      </h1>
+      <p class="text-base my-6">
+        <i class="fa-brands fa-instagram text-blueviolet"></i>&nbsp;&nbsp;
+        <i class="fa-brands fa-telegram text-blueviolet"></i>&nbsp;
+        <i class="fa-brands fa-facebook text-blueviolet"></i>&nbsp;
+        <i class="fa-brands fa-twitter text-blueviolet"></i>
+      </p>
+      <div class="text-sm text-whitesmoke">
+        ©Copyright 2023 <b class="text-blueviolet">AzeezCode</b>. All rights
+        reserved
+      </div>
+    </footer>
+    <script src="index.js"></script>
+  </body>
+</html>

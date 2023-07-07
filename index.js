@@ -26,11 +26,11 @@ fetch(
     var polkadotPrice = document.getElementById("polkprice");
     var chainlinkPrice = document.getElementById("chainprice");
 
-    bitcoinPrice.innerHTML = bitPrice;
-    ethereumPrice.innerHTML = ethPrice;
-    litecoinPrice.innerHTML = litePrice;
-    polkadotPrice.innerHTML = polkPrice;
-    chainlinkPrice.innerHTML = chainPrice;
+    bitcoinPrice.innerHTML = "$" + bitPrice;
+    ethereumPrice.innerHTML = "$" + ethPrice;
+    litecoinPrice.innerHTML = "$" + litePrice;
+    polkadotPrice.innerHTML = "$" + polkPrice;
+    chainlinkPrice.innerHTML = "$" + chainPrice;
 
     var bitcoinChange = document.getElementById("bit_change");
     var ethereumChange = document.getElementById("eth_change");
@@ -49,32 +49,42 @@ fetch(
 
     if (datalist.bitcoin.usd_24h_change < 0) {
       bitcoinChange.style.color = "red";
+      bitcoinPrice.style.color = "red";
     } else {
       bitcoinChange.style.color = "green";
+      bitcoinPrice.style.color = "green";
     }
 
     if (datalist.ethereum.usd_24h_change < 0) {
       ethereumChange.style.color = "red";
+      ethereumPrice.style.color = "red";
     } else {
       ethereumChange.style.color = "green";
+      ethereumPrice.style.color = "green";
     }
 
     if (datalist.chainlink.usd_24h_change < 0) {
       chainChange.style.color = "red";
+      chainlinkPrice.style.color = "red";
     } else {
       chainChange.style.color = "green";
+      chainlinkPrice.style.color = "green";
     }
 
     if (datalist.polkadot.usd_24h_change < 0) {
       polkadotChange.style.color = "red";
+      polkadotPrice.style.color = "red";
     } else {
       polkadotChange.style.color = "green";
+      polkadotPrice.style.color = "green";
     }
 
     if (datalist.litecoin.usd_24h_change < 0) {
       litecoinChange.style.color = "red";
+      litecoinPrice.style.color = "red";
     } else {
       litecoinChange.style.color = "green";
+      litecoinPrice.style.color = "green";
     }
 
     function roundTO(n, place) {
