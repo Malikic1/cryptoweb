@@ -25,7 +25,8 @@ fetch(
     var litecoinPrice = document.getElementById("liteprice");
     var polkadotPrice = document.getElementById("polkprice");
     var chainlinkPrice = document.getElementById("chainprice");
-
+    var bitp = document.getElementById("bitp");
+    bitp.innerHTML = "$" + bitPrice;
     bitcoinPrice.innerHTML = "$" + bitPrice;
     ethereumPrice.innerHTML = "$" + ethPrice;
     litecoinPrice.innerHTML = "$" + litePrice;

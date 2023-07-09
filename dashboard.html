@@ -13,7 +13,6 @@
     />
     <link rel="stylesheet" href="css/main.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-
     <title>crypto</title>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Kablammo&family=Kelly+Slab&display=swap");
@@ -65,69 +64,74 @@
         </button>
       </div>
     </header>
-    <main class="mt-6 flex">
+    <main class="mt-2 flex gap-x-2 justify-between pr-2">
       <section>
         <nav
-          class="w-12 bg-darkgrey text-center mt-20 px-4 flex flex-col gap-y-2 text-dark py-6"
+          class="w-12 bg-darkgrey text-center mt-20 flex flex-col gap-y-2 text-dark py-6"
           style="
             border-top-right-radius: 10rem;
             border-bottom-right-radius: 10rem;
           "
         >
-          <button class="">
-            <i class="fa-solid fa-bars text-2xl"></i>
+          <button class="mb-4 border-l-2 border-blueviolet">
+            <i
+              class="fa-solid fa-bars-progress text-light text-lg text-blueviolet"
+            ></i>
           </button>
-          <button class="">
-            <i class="fa-solid fa-bars text-2xl"></i>
+          <button class="mb-4">
+            <i class="fa-solid fa-bell text-xl text-light"></i>
           </button>
-          <button class="">
-            <i class="fa-solid fa-bars text-2xl"></i>
+          <button class="mb-4">
+            <i class="fa-solid fa-calendar text-lg text-light"></i>
           </button>
-          <button class="">
-            <i class="fa-solid fa-bars text-2xl"></i>
+          <button class="mb-4">
+            <i class="fa-solid fa-arrows-rotate text-lg text-light"></i>
           </button>
-          <button class="">
-            <i class="fa-solid fa-bars text-2xl"></i>
+          <button class="mb-4">
+            <i class="fa-solid fa-chart-line text-lg text-light"></i>
           </button>
-          <button class="t">
-            <i class="fa-solid fa-bars text-2xl"></i>
+          <button class="mb-4">
+            <i class="fa-solid fa-wallet text-lg text-light"></i>
           </button>
-          <button class="px">
-            <i class="fa-solid fa-bars text-2xl"></i>
+          <button class="mb-4">
+            <i class="fa-solid fa-newspaper text-lg text-light"></i>
           </button>
-          <button class="px">
-            <i class="fa-solid fa-bars text-2xl"></i>
+          <button class="mb-4">
+            <i class="fa-solid fa-gear text-lg text-light"></i>
           </button>
-          <button class="">
-            <i class="fa-solid fa-bars text-2xl"></i>
+
+          <button class="mb-4">
+            <i class="fa-solid fa-circle-question text-lg text-light"></i>
           </button>
-          <button class="t">
-            <i class="fa-solid fa-bars text-2xl"></i>
+          <button class="mb-4">
+            <i
+              class="fa-solid fa-arrow-right-from-bracket text-blueviolet text-lg text-light"
+            ></i>
           </button>
         </nav>
       </section>
-      <section class="w-2/3">
-        <div>
-          <canvas></canvas>
-        </div>
+      <section class="w-3/4">
+        <canvas id="chart" style="width: 100%; height: 380px" class=""></canvas>
+        <br />
+
         <div>
           <table class="w-full text-sm border-none">
             <thead>
-              <tr class="bg-darkgrey rounded-sm border border-transtext-sm">
+              <tr class="bg-darkgrey rounded-sm border-dark border-b-2 text-sm">
                 <td class="p-2 text-whitesmoke">NAME</td>
                 <td class="text-right text-whitesmoke">PRICE</td>
                 <td class="text-right text-whitesmoke">24H</td>
-                <td class="text-right text-whitesmoke hidden es:block">
+                <td class="text-right text-whitesmoke mt-2 hidden es:block">
                   MARKET CAP
                 </td>
                 <td class="text-right pr-3 text-whitesmoke">TRADE</td>
               </tr>
             </thead>
             <tbody class="font-semibold text-sm">
-              <tr class="bg-darkgrey rounded-sm border-trans border-b">
+              <tr class="bg-darkgrey rounded-sm border-dark border-b-2">
                 <td class="p-2 esm:p-3">
                   <i
-                    class="fa-solid fa-bitcoin-sign px-2 py-1 bg-blueviolet rounded-full"
+                    class="fa-solid fa-bitcoin-sign pr-2"
                     style="color: gold"
                   ></i>
                   Bitcoin (BTC)
@@ -138,18 +142,14 @@
                   $ <span id="bitcap"></span>
                 </td>
                 <td class="text-right pr-1 esm:pr-3">
-                  <a
-                    href=""
-                    class="bg-blueviolet border border-blueviolet rounded-sm px-3 esm:px-5 py-1"
-                    >Trade</a
-                  >
+                  <i class="fa-solid fa-plus font-semibold text-md"></i>
+                  &nbsp;&nbsp;
+                  <i class="fa-solid fa-ellipsis text-whitesmoke"></i>
                 </td>
               </tr>
-              <tr class="bg-darkgrey rounded-sm border-trans border-b">
+              <tr class="bg-darkgrey rounded-sm border-dark border-b-2">
                 <td class="p-2 esm:p-3">
-                  <i
-                    class="fa-brands fa-ethereum px-2 py-1 bg-blueviolet rounded-full"
-                  ></i>
+                  <i class="fa-brands fa-ethereum pr-2 text-whitesmoke"></i>
                   Ethereum (ETH)
                 </td>
                 <td class="text-right"><span id="ethprice"></span></td>
@@ -158,17 +158,15 @@
                   $ <span id="ethcap"></span>
                 </td>
                 <td class="text-right pr-1 esm:pr-3">
-                  <a
-                    href=""
-                    class="bg-blueviolet border border-blueviolet rounded-sm px-3 esm:px-5 py-1"
-                    >Trade</a
-                  >
+                  <i class="fa-solid fa-plus font-semibold text-md"></i>
+                  &nbsp;&nbsp;
+                  <i class="fa-solid fa-ellipsis text-whitesmoke"></i>
                 </td>
               </tr>
-              <tr class="bg-darkgrey rounded-sm border-trans border-b">
+              <tr class="bg-darkgrey rounded-sm border-dark border-b-2">
                 <td class="p-2 esm:p-3">
                   <i
-                    class="fa-solid fa-litecoin-sign px-2 py-1 bg-blueviolet rounded-full"
+                    class="fa-solid fa-litecoin-sign pr-2"
                     style="color: lightblue"
                   ></i>
                   Litecoin (LTC)
@@ -179,41 +177,46 @@
                   $ <span id="litecap"></span>
                 </td>
                 <td class="text-right pr-1 esm:pr-3">
-                  <a
-                    href=""
-                    class="bg-blueviolet border border-blueviolet rounded-sm px-3 esm:px-5 py-1"
-                    >Trade</a
-                  >
+                  <i class="fa-solid fa-plus font-semibold text-md"></i>
+                  &nbsp;&nbsp;
+                  <i class="fa-solid fa-ellipsis text-whitesmoke"></i>
                 </td>
               </tr>
-              <tr class="bg-darkgrey rounded-sm border-trans border-b">
-                <td class="p-2 esm:p-3">Polkadot (DOT)</td>
+              <tr class="bg-darkgrey rounded-sm border-dark border-b-2">
+                <td class="p-2 esm:p-3">
+                  <i
+                    class="fa-solid fa-spinner pr-2"
+                    style="color: rgb(216, 94, 165)"
+                  ></i
+                  >Polkadot (DOT)
+                </td>
                 <td class="text-right"><span id="polkprice"></span></td>
                 <td class="text-right"><span id="polk_change"></span></td>
                 <td class="text-right hidden es:block es:pt-3">
                   $ <span id="polkcap"></span>
                 </td>
                 <td class="text-right px-1 esm:pr-3">
-                  <a
-                    href=""
-                    class="bg-blueviolet border border-blueviolet rounded-sm px-3 esm:px-5 py-1"
-                    >Trade</a
-                  >
+                  <i class="fa-solid fa-plus font-semibold text-md"></i>
+                  &nbsp;&nbsp;
+                  <i class="fa-solid fa-ellipsis text-whitesmoke"></i>
                 </td>
               </tr>
-              <tr class="bg-darkgrey rounded-sm border-trans border-b">
-                <td class="p-2 esm:p-3">Chainlink (LINK)</td>
+              <tr class="bg-darkgrey rounded-sm border-dark border-b-2">
+                <td class="p-2 esm:p-3">
+                  <span class="pr-2" style="color: rgb(69, 76, 172)"
+                    >&#x2B22;</span
+                  >
+                  <span> Chainlink (LINK)</span>
+                </td>
                 <td class="text-right"><span id="chainprice"></span></td>
                 <td class="text-right"><span id="chain_change"></span></td>
-                <td class="text-right hidden es:block">
+                <td class="text-right hidden es:block es:pt-3">
                   $ <span id="chaincap"></span>
                 </td>
                 <td class="text-right pr-1 sm:pr-3">
-                  <a
-                    href=""
-                    class="bg-blueviolet border border-blueviolet rounded-sm px-3 esm:px-5 py-1"
-                    >Trade</a
-                  >
+                  <i class="fa-solid fa-plus font-semibold text-md"></i>
+                  &nbsp;&nbsp;
+                  <i class="fa-solid fa-ellipsis text-whitesmoke"></i>
                 </td>
               </tr>
             </tbody>
@@ -221,7 +224,7 @@
         </div>
       </section>
       <section>
-        <div class="p-4 bg-darkgrey w-64 rounded-md">
+        <div class="pr-8 pt-6 pl-6 bg-darkgrey w-64 rounded-md">
           <div class="flex justify-between">
             <p class="font-semibold text-xl">Balances</p>
             <p>
@@ -238,36 +241,106 @@
 
           <div class="mt-12">
             <div class="bg-blueviolet w-full h-32 rounded-md p-3">
-              <div class="flex relative left-40">
+              <div class="flex relative left-32 w-12">
                 <p class="w-6 h-6 bg-light rounded-full"></p>
-                <p class="w-6 h-6 bg-dark -ml-3 rounded-full"></p>
+                <p class="w-6 h-6 bg-whitesmoke -ml-3 rounded-full"></p>
               </div>
               <div class="mt-12">
                 <p class="flex text-whitesmoke">
                   <small>mm&nbsp;</small>
                   <small>&nbsp;yr</small>
                 </p>
-                <p class="text-lg font-semibold -mt-2">05/25</p>
+                <p class="text-md font-semibold -mt-2">05/25</p>
               </div>
             </div>
             <div
-              class="bg-whitesmoke w-56 h-32 rounded-md p-3 absolute -mt-28"
-              style="transform: rotate(30deg)"
+              class="bg-whitesmoke w-full h-32 rounded-md p-3 ml-2 -mt-32"
+              style="
+                transform: rotate(20deg);
+                background-color: rgb(180, 135, 223);
+                box-shadow: 1px 2px 20px 5px rgba(128, 128, 128, 0.822) inset;
+              "
             >
-              <div class="flex relative left-40">
-                <p class="w-6 h-6 bg-light rounded-full"></p>
-                <p class="w-6 h-6 bg-dark -ml-3 rounded-full"></p>
-              </div>
-              <div class="mt-12">
+              <section class="flex justify-between">
+                <div>
+                  <p class="text-lg">Glas</p>
+                </div>
+                <div class="flex w-12">
+                  <p class="w-6 h-6 bg-light rounded-full"></p>
+                  <p class="w-6 h-6 bg-whitesmoke -ml-3 rounded-full"></p>
+                </div>
+              </section>
+              <p class="font-semibold mt-4">781221390823XXXX</p>
+              <div class="mt-1">
                 <p class="flex text-whitesmoke">
                   <small>mm&nbsp;</small>
                   <small>&nbsp;yr</small>
                 </p>
-                <p class="text-lg font-semibold -mt-2">05/25</p>
+                <p class="text-md font-semibold -mt-2">05/25</p>
               </div>
             </div>
             <br /><br />
           </div>
+        </div>
+        <div>
+          <p class="font-semibold mt-4 py-2">Convert</p>
+          <p class="flex">
+            <input
+              type="text"
+              class="bg-darkgrey rounded-md pl-2 text-light text-base py-1"
+              placeholder="$100"
+            />
+            <select
+              name=""
+              id=""
+              class="bg-blueviolet px-3 py-1 rounded-md -ml-2 text-sm font-semibold"
+            >
+              <option value="usd">USD</option>
+            </select>
+          </p>
+          <p class="flex my-2">
+            <input
+              type="text"
+              class="bg-darkgrey rounded-md pl-2 text-light text-base py-1"
+              placeholder="0.0300736588899"
+            />
+            <select
+              name=""
+              id=""
+              class="bg-blueviolet px-3 py-1 rounded-md -ml-2 text-sm font-semibold"
+            >
+              <option value="btc">BTC</option>
+            </select>
+          </p>
+          <p class="flex">
+            <input
+              type="text"
+              class="bg-darkgrey rounded-md pl-2 text-light text-base py-1"
+              placeholder="0.00004356"
+            />
+            <select
+              name=""
+              id=""
+              class="bg-blueviolet px-3 py-1 rounded-md -ml-2 text-sm font-semibold"
+            >
+              <option value="eth">ETH</option>
+            </select>
+          </p>
+        </div>
+        <div class="bg-darkgrey p-4 mt-2 rounded-md">
+          <div class="flex justify-between">
+            <p class="font-semibold text-lg">Today Activity</p>
+            <p class="flex flex-col">
+              <span class="text-sm">View Details</span>
+              <span
+                class="text-center text-whitesmoke"
+                style="font-size: 0.65rem"
+                >0 Minute ago</span
+              >
+            </p>
+          </div>
+          <div></div>
+          <p class="text-sm font-semibold">1BTC = <span id="bitp"></span></p>
         </div>
       </section>
     </main>
@@ -288,5 +361,6 @@
       </div>
     </footer>
     <script src="index.js"></script>
+    <script src="chart.js"></script>
   </body>
 </html>
