@@ -1,8 +1,13 @@
 var menuButton = document.getElementById("menu_btn");
 var nav = document.getElementById("nav");
-
+var index = document.getElementById("header");
+var hide = document.getElementById("hide");
+var hid = document.getElementById("hid");
 menuButton.addEventListener("click", function () {
   nav.classList.toggle("hidden");
+  index.classList.toggle("fixed");
+  hide.classList.toggle("hidden");
+  hid.classList.toggle("hidden");
 });
 
 fetch(
