@@ -41,7 +41,7 @@
   </head>
   <body class="text-light bg-dark">
     <header
-      class="flex justify-between gap-x-3 px-2 md:px-4 lg:px-8 py-4 flex-row w-full"
+      class="flex justify-between gap-x-3 px-2 md:px-4 lg:px-8 py-4 flex-row w-full top-0"
       id="header"
       style="z-index: 10"
     >
@@ -89,7 +89,7 @@
       </div>
     </header>
     <main
-      class="md:mt-2 flex gap-x-2 justify-between md:pr-2 flex-col md:flex-row mt-24"
+      class="md:mt-2 flex gap-x-2 gap-y-2 justify-between md:pr-2 flex-col md:flex-row mt-24"
     >
       <section
         class="fixed md:relative md\:block -top-2 md\:top-0 w-full md:w-auto bg-darkgrey md:bg-transparent hidden md:block"
@@ -255,124 +255,143 @@
           </table>
         </div>
       </section>
-      <section>
-        <div class="pr-8 pt-6 pl-6 bg-darkgrey w-64 rounded-md">
-          <div class="flex justify-between">
-            <p class="font-semibold text-xl">Balances</p>
-            <p>
-              <i
-                class="fa-solid fa-plus bg-blueviolet px-2 py-1 font-semibold rounded-sm"
-              ></i>
+      <section class="es:w-full md:w-60">
+        <div
+          class="es:flex md:block es:justify-between es:p-2 es:gap-x-2 md:p-0 md:gap-x-0"
+        >
+          <div
+            class="pr-8 pt-6 pl-4 bg-darkgrey rounded-md es:w-60 md:w-auto m-2 es:m-0"
+          >
+            <div class="flex justify-between">
+              <p class="font-semibold text-xl">Balances</p>
+              <p>
+                <i
+                  class="fa-solid fa-plus bg-blueviolet px-2 py-1 font-semibold rounded-sm"
+                ></i>
+              </p>
+            </div>
+            <p class="mt-6">
+              <span class="text-blueviolet text-xl">$</span
+              ><span class="relative -top-1 text-sm"> Dollar</span>
             </p>
-          </div>
-          <p class="mt-6">
-            <span class="text-blueviolet text-xl">$</span
-            ><span class="relative -top-1 text-sm"> Dollar</span>
-          </p>
-          <p class="text-2xl text-blueviolet font-semibold mb-4">9784.79</p>
+            <p class="text-2xl text-blueviolet font-semibold mb-4">9784.79</p>
 
-          <div class="mt-12">
-            <div class="bg-blueviolet w-full h-32 rounded-md p-3">
-              <div class="flex relative left-32 w-12">
-                <p class="w-6 h-6 bg-light rounded-full"></p>
-                <p class="w-6 h-6 bg-whitesmoke -ml-3 rounded-full"></p>
-              </div>
-              <div class="mt-12">
-                <p class="flex text-whitesmoke">
-                  <small>mm&nbsp;</small>
-                  <small>&nbsp;yr</small>
-                </p>
-                <p class="text-md font-semibold -mt-2">05/25</p>
-              </div>
-            </div>
-            <div
-              class="bg-whitesmoke w-full h-32 rounded-md p-3 ml-2 -mt-32"
-              style="
-                transform: rotate(20deg);
-                background-color: rgb(180, 135, 223);
-                box-shadow: 1px 2px 20px 5px rgba(128, 128, 128, 0.822) inset;
-              "
-            >
-              <section class="flex justify-between">
-                <div>
-                  <p class="text-lg">Glas</p>
-                </div>
-                <div class="flex w-12">
-                  <p class="w-6 h-6 bg-light rounded-full"></p>
-                  <p class="w-6 h-6 bg-whitesmoke -ml-3 rounded-full"></p>
-                </div>
-              </section>
-              <p class="font-semibold mt-4">781221390823XXXX</p>
-              <div class="mt-1">
-                <p class="flex text-whitesmoke">
-                  <small>mm&nbsp;</small>
-                  <small>&nbsp;yr</small>
-                </p>
-                <p class="text-md font-semibold -mt-2">05/25</p>
-              </div>
-            </div>
-            <br /><br />
-          </div>
-        </div>
-        <div>
-          <p class="font-semibold mt-4 py-2">Convert</p>
-          <p class="flex">
-            <input
-              type="text"
-              class="bg-darkgrey rounded-md pl-2 text-light text-base py-1"
-              placeholder="$100"
-            />
-            <select
-              name=""
-              id=""
-              class="bg-blueviolet px-3 py-1 rounded-md -ml-2 text-sm font-semibold"
-            >
-              <option value="usd">USD</option>
-            </select>
-          </p>
-          <p class="flex my-2">
-            <input
-              type="text"
-              class="bg-darkgrey rounded-md pl-2 text-light text-base py-1"
-              placeholder="0.0300736588899"
-            />
-            <select
-              name=""
-              id=""
-              class="bg-blueviolet px-3 py-1 rounded-md -ml-2 text-sm font-semibold"
-            >
-              <option value="btc">BTC</option>
-            </select>
-          </p>
-          <p class="flex">
-            <input
-              type="text"
-              class="bg-darkgrey rounded-md pl-2 text-light text-base py-1"
-              placeholder="0.00004356"
-            />
-            <select
-              name=""
-              id=""
-              class="bg-blueviolet px-3 py-1 rounded-md -ml-2 text-sm font-semibold"
-            >
-              <option value="eth">ETH</option>
-            </select>
-          </p>
-        </div>
-        <div class="bg-darkgrey p-4 mt-2 rounded-md">
-          <div class="flex justify-between">
-            <p class="font-semibold text-lg">Today Activity</p>
-            <p class="flex flex-col">
-              <span class="text-sm">View Details</span>
-              <span
-                class="text-center text-whitesmoke"
-                style="font-size: 0.65rem"
-                >0 Minute ago</span
+            <div class="mt-12">
+              <div
+                class="bg-blueviolet w-60 m-auto es:w-full h-32 rounded-md p-3"
               >
-            </p>
+                <section class="flex justify-between">
+                  <div>
+                    <p></p>
+                  </div>
+                  <div class="flex w-12">
+                    <p class="w-6 h-6 bg-light rounded-full"></p>
+                    <p class="w-6 h-6 bg-whitesmoke -ml-3 rounded-full"></p>
+                  </div>
+                </section>
+                <div class="mt-12">
+                  <p class="flex text-whitesmoke">
+                    <small>mm&nbsp;</small>
+                    <small>&nbsp;yr</small>
+                  </p>
+                  <p class="text-md font-semibold -mt-2">05/25</p>
+                </div>
+              </div>
+              <div
+                class="bg-whitesmoke w-60 es:w-full m-auto h-32 rounded-md p-3 es:ml-2 -mt-32 ml-auto mr:auto"
+                style="
+                  transform: rotate(20deg);
+                  background-color: rgb(180, 135, 223);
+                  box-shadow: 1px 2px 20px 5px rgba(128, 128, 128, 0.822) inset;
+                "
+              >
+                <section class="flex justify-between">
+                  <div>
+                    <p class="text-lg">Glas</p>
+                  </div>
+                  <div class="flex w-12">
+                    <p class="w-6 h-6 bg-light rounded-full"></p>
+                    <p class="w-6 h-6 bg-whitesmoke -ml-3 rounded-full"></p>
+                  </div>
+                </section>
+                <p class="font-semibold mt-4">781221390823XXXX</p>
+                <div class="mt-1">
+                  <p class="flex text-whitesmoke">
+                    <small>mm&nbsp;</small>
+                    <small>&nbsp;yr</small>
+                  </p>
+                  <p class="text-md font-semibold -mt-2">05/25</p>
+                </div>
+              </div>
+              <br /><br />
+            </div>
           </div>
-          <div></div>
-          <p class="text-sm font-semibold">1BTC = <span id="bitp"></span></p>
+          <div class="">
+            <p class="font-semibold mt-4 py-2 text-center es:text-left">
+              Convert
+            </p>
+            <p class="flex justify-center es:justify-between">
+              <input
+                type="text"
+                class="bg-darkgrey rounded-md pl-2 text-light text-base py-1"
+                placeholder="$100"
+              />
+              <select
+                name=""
+                id=""
+                class="bg-blueviolet px-3 py-1 rounded-md es:ml-0 -ml-6 es:absolute es:right-2 font-semibold"
+              >
+                <option value="usd">USD</option>
+              </select>
+            </p>
+            <p class="flex my-2 justify-center es:justify-between">
+              <input
+                type="text"
+                class="bg-darkgrey rounded-md pl-2 text-light text-base py-1"
+                placeholder="0.0300736588899"
+              />
+              <select
+                name=""
+                id=""
+                class="bg-blueviolet px-3 py-1 rounded-md es:ml-0 -ml-6 es:absolute es:right-2 font-semibold"
+              >
+                <option value="btc">BTC</option>
+              </select>
+            </p>
+            <p class="flex justify-center es:justify-between">
+              <input
+                type="text"
+                class="bg-darkgrey rounded-md pl-2 text-light text-base py-1"
+                placeholder="0.00004356"
+              />
+              <select
+                name=""
+                id=""
+                class="bg-blueviolet px-3 py-1 rounded-md es:ml-0 -ml-6 es:absolute es:right-2 font-semibold"
+              >
+                <option value="eth">ETH</option>
+              </select>
+            </p>
+            <div
+              class="es:bg-darkgrey p-4 mt-4 rounded-md es:w-60 es:mt-2 w-full"
+            >
+              <div class="flex justify-between gap-x-4">
+                <p class="font-semibold text-lg">Today Activity</p>
+                <p class="flex flex-col">
+                  <span class="text-sm">View Details</span>
+                  <span
+                    class="text-center text-whitesmoke"
+                    style="font-size: 0.65rem"
+                    >0 Minute ago</span
+                  >
+                </p>
+              </div>
+              <div></div>
+              <p class="text-sm font-semibold">
+                1BTC = <span id="bitp"></span>
+              </p>
+            </div>
+          </div>
         </div>
       </section>
     </main>

@@ -30,8 +30,7 @@ fetch(
     var litecoinPrice = document.getElementById("liteprice");
     var polkadotPrice = document.getElementById("polkprice");
     var chainlinkPrice = document.getElementById("chainprice");
-    var bitp = document.getElementById("bitp");
-    bitp.innerHTML = "$" + bitPrice;
+
     bitcoinPrice.innerHTML = "$" + bitPrice;
     ethereumPrice.innerHTML = "$" + ethPrice;
     litecoinPrice.innerHTML = "$" + litePrice;
@@ -93,21 +92,28 @@ fetch(
       litecoinPrice.style.color = "green";
     }
 
+    function roundOff(n, place) {
+      if (n >= 1000000000) {
+        return (n / 1e9).toFixed(place) + "B";
+      }
+      if (1000000 >= n && n < 1000000000) {
+        return (n / 1e6).toFixed(place) + "M";
+      }
+    }
     function roundTO(n, place) {
       return +(Math.round(n + "e+" + place) + "e-" + place);
     }
-
     var bitcoinCap = document.getElementById("bitcap");
     var ethereumCap = document.getElementById("ethcap");
     var litecoinCap = document.getElementById("litecap");
     var polkadotCap = document.getElementById("polkcap");
     var chainCap = document.getElementById("chaincap");
 
-    bitcoinCap.innerHTML = roundTO(datalist.bitcoin.usd_market_cap, 2);
-    ethereumCap.innerHTML = roundTO(datalist.ethereum.usd_market_cap, 2);
-    litecoinCap.innerHTML = roundTO(datalist.litecoin.usd_market_cap, 2);
-    polkadotCap.innerHTML = roundTO(datalist.polkadot.usd_market_cap, 2);
-    chainCap.innerHTML = roundTO(datalist.chainlink.usd_market_cap, 2);
+    bitcoinCap.innerHTML = roundOff(datalist.bitcoin.usd_market_cap, 2);
+    ethereumCap.innerHTML = roundOff(datalist.ethereum.usd_market_cap, 2);
+    litecoinCap.innerHTML = roundOff(datalist.litecoin.usd_market_cap, 2);
+    polkadotCap.innerHTML = roundOff(datalist.polkadot.usd_market_cap, 2);
+    chainCap.innerHTML = roundOff(datalist.chainlink.usd_market_cap, 2);
 
     var exchange = document.getElementById("exchangeBtn");
     exchange.addEventListener("click", function () {
@@ -137,4 +143,17 @@ fetch(
           break;
       }
     });
+  });
+
+fetch(
+  "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_market_cap=true&include_24hr_vol=true&include_24hr_change=true&precision=2",
+  { method: "GET" }
+)
+  .then((price) => {
+    return price.json();
+  })
+  .then((data) => {
+    let bitPrice = data.bitcoin.usd;
+    var bitp = document.getElementById("bitp");
+    bitp.innerHTML = "$" + bitPrice;
   });
