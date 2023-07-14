@@ -26,6 +26,15 @@
       #index {
         z-index: 5;
       }
+      .nav:hover + .detail {
+        display: block !important;
+      }
+      .halfdoughnut {
+        height: 100px;
+        width: 200px;
+        margin: 1em auto;
+        overflow: hidden;
+      }
       @media screen and (min-width: 768px) {
         .nav {
           border-top-right-radius: 10rem;
@@ -97,47 +106,112 @@
         id="nav"
       >
         <nav
-          class="w-12 bg-darkgrey text-center mt-20 flex flex-col gap-y-2 text-dark py-6 nav"
+          class="md:w-12 bg-darkgrey md:text-center mt-20 flex flex-col gap-y-2 text-dark py-6 nav overflow-hidden md:hover:w-40 md:hover:mt-1 md:hover:rounded-md"
         >
-          <button class="mb-4 border-l-2 border-blueviolet">
-            <i
-              class="fa-solid fa-bars-progress text-light text-lg text-blueviolet"
-            ></i>
-          </button>
-          <button class="mb-4">
-            <i class="fa-solid fa-bell text-xl text-light"></i>
-          </button>
-          <button class="mb-4">
-            <i class="fa-solid fa-calendar text-lg text-light"></i>
-          </button>
-          <button class="mb-4">
-            <i class="fa-solid fa-arrows-rotate text-lg text-light"></i>
-          </button>
-          <button class="mb-4">
-            <i class="fa-solid fa-chart-line text-lg text-light"></i>
-          </button>
-          <button class="mb-4">
-            <i class="fa-solid fa-wallet text-lg text-light"></i>
-          </button>
-          <button class="mb-4">
-            <i class="fa-solid fa-newspaper text-lg text-light"></i>
-          </button>
-          <button class="mb-4">
-            <i class="fa-solid fa-gear text-lg text-light"></i>
+          <button
+            class="mb-4 border-l-2 border-blueviolet md:pl-0 w-32 bg-dark w-48"
+          >
+            <p class="flex ml-4 gap-x-2 text-blueviolet">
+              <span class="self-center">
+                <i class="fa-solid fa-bars-progress text-light text-xl"></i
+              ></span>
+              <span class="text-md ml-2 font-semibold self-center"
+                >Dashboard</span
+              >
+            </p>
           </button>
 
           <button class="mb-4">
-            <i class="fa-solid fa-circle-question text-lg text-light"></i>
+            <p class="flex ml-4 gap-x-2 text-light">
+              <span class="self-center">
+                <i class="fa-solid fa-bell text-xl"></i
+              ></span>
+              <span class="text-md ml-2 font-semibold self-center"
+                >Notification</span
+              >
+            </p>
           </button>
           <button class="mb-4">
-            <i
-              class="fa-solid fa-arrow-right-from-bracket text-blueviolet text-lg text-light"
-            ></i>
+            <p class="flex ml-4 gap-x-2 text-light">
+              <span class="self-center selector text-center">
+                <i class="fa-solid fa-calendar text-xl"></i
+              ></span>
+              <span class="text-md ml-2 font-semibold self-center"
+                >Schedule</span
+              >
+            </p>
+          </button>
+          <button class="mb-4">
+            <p class="flex ml-4 gap-x-2 text-light">
+              <span class="self-center text-center">
+                <i class="fa-solid fa-arrows-rotate text-xl"></i
+              ></span>
+              <span class="text-md ml-2 font-semibold self-center"
+                >Exchange</span
+              >
+            </p>
+          </button>
+          <button class="mb-4">
+            <p class="flex ml-4 gap-x-2 text-light">
+              <span class="self-center">
+                <i class="fa-solid fa-chart-line text-xl"></i
+              ></span>
+              <span class="text-md ml-2 font-semibold self-center"
+                >Statistics</span
+              >
+            </p>
+          </button>
+          <button class="mb-4">
+            <p class="flex ml-4 gap-x-2 text-light">
+              <span class="self-center">
+                <i class="fa-solid fa-wallet text-xl"></i
+              ></span>
+              <span class="text-md ml-2 font-semibold self-center">Wallet</span>
+            </p>
+          </button>
+          <button class="mb-4">
+            <p class="flex ml-4 gap-x-2 text-light">
+              <span class="self-center">
+                <i class="fa-solid fa-newspaper text-xl"></i
+              ></span>
+              <span class="text-md ml-2 font-semibold self-center"
+                >Schedule</span
+              >
+            </p>
+          </button>
+          <button class="mb-4">
+            <p class="flex ml-4 gap-x-2 text-light">
+              <span class="self-center text-center">
+                <i class="fa-solid fa-gear text-xl"></i
+              ></span>
+              <span class="text-md ml-2 font-semibold self-center"
+                >Settings</span
+              >
+            </p>
+          </button>
+
+          <button class="mb-4">
+            <p class="flex ml-4 gap-x-2 text-light">
+              <span class="self-center text-center">
+                <i class="fa-solid fa-circle-question text-xl"></i
+              ></span>
+              <span class="text-md ml-2 font-semibold self-center">Help</span>
+            </p>
+          </button>
+          <button class="mb-4">
+            <p class="flex ml-5 gap-x-2 text-blueviolet">
+              <span class="self-center selector text-center">
+                <i class="fa-solid fa-arrow-right-from-bracket text-lg"></i
+              ></span>
+              <span class="text-base ml-2 font-semibold self-center"
+                >Log Out</span
+              >
+            </p>
           </button>
         </nav>
 
         <button
-          class="md:mt-12 px-2 rounded-md font-semibold py-1 bg-blueviolet"
+          class="md:mt-12 px-2 rounded-md font-semibold py-1 bg-blueviolet w-16"
         >
           <small>Get Pro</small>
         </button>
@@ -278,7 +352,7 @@
 
             <div class="mt-12">
               <div
-                class="bg-blueviolet w-60 m-auto es:w-full h-32 rounded-md p-3"
+                class="bg-blueviolet w-48 m-auto es:w-full h-32 rounded-md p-3"
               >
                 <section class="flex justify-between">
                   <div>
@@ -298,7 +372,7 @@
                 </div>
               </div>
               <div
-                class="bg-whitesmoke w-60 es:w-full m-auto h-32 rounded-md p-3 es:ml-2 -mt-32 ml-auto mr:auto"
+                class="bg-whitesmoke w-48 es:w-full m-auto h-32 rounded-md p-3 es:ml-2 -mt-32 ml-auto mr:auto"
                 style="
                   transform: rotate(20deg);
                   background-color: rgb(180, 135, 223);
@@ -386,7 +460,9 @@
                   >
                 </p>
               </div>
-              <div></div>
+              <div class="halfdoughnut">
+                <canvas id="myChart"></canvas>
+              </div>
               <p class="text-sm font-semibold">
                 1BTC = <span id="bitp"></span>
               </p>
