@@ -108,13 +108,10 @@
         <nav
           class="md:w-12 bg-darkgrey md:text-center mt-20 flex flex-col gap-y-2 text-dark py-6 nav overflow-hidden md:hover:w-40 md:hover:mt-1 md:hover:rounded-md"
         >
-          <button
-            class="mb-4 border-l-2 border-blueviolet md:pl-0 w-32 bg-dark w-48"
-            onclick="window.location.href='dashboard.html'"
-          >
-            <p class="flex ml-4 gap-x-2 text-blueviolet">
-              <span class="self-center">
-                <i class="fa-solid fa-bars-progress text-light text-xl"></i
+          <button class="mb-4" onclick="window.location.href='dashboard.html'">
+            <p class="flex ml-4 gap-x-2 text-light">
+              <span class="self-center text-center">
+                <i class="fa-solid fa-bars-progress text-xl"></i
               ></span>
               <span class="text-md ml-2 font-semibold self-center"
                 >Dashboard</span
@@ -144,7 +141,7 @@
           </button>
           <button class="mb-4" onclick="window.location.href='exchange.html'">
             <p class="flex ml-4 gap-x-2 text-light">
-              <span class="self-center text-center">
+              <span class="self-center">
                 <i class="fa-solid fa-arrows-rotate text-xl"></i
               ></span>
               <span class="text-md ml-2 font-semibold self-center"
@@ -152,6 +149,7 @@
               >
             </p>
           </button>
+
           <button class="mb-4" onclick="window.location.href='market.html'">
             <p class="flex ml-4 gap-x-2 text-light">
               <span class="self-center">
@@ -160,10 +158,13 @@
               <span class="text-md ml-2 font-semibold self-center">Market</span>
             </p>
           </button>
-          <button class="mb-4" onclick="window.location.href='wallet.html'">
-            <p class="flex ml-4 gap-x-2 text-light">
+          <button
+            class="mb-4 border-l-2 border-blueviolet md:pl-0 w-32 bg-dark w-48"
+            onclick="window.location.href='wallet.html'"
+          >
+            <p class="flex ml-4 gap-x-2 text-blueviolet">
               <span class="self-center">
-                <i class="fa-solid fa-wallet text-xl"></i
+                <i class="fa-solid fa-wallet text-light text-xl"></i
               ></span>
               <span class="text-md ml-2 font-semibold self-center">Wallet</span>
             </p>
@@ -216,20 +217,58 @@
         </button>
       </section>
       <section class="md:w-3/4 w-full">
-        <canvas id="chart" style="width: 100%; height: 380px" class=""></canvas>
         <br />
+        <div
+          class="pr-8 pt-6 pl-4 bg-darkgrey rounded-md es:w-60 md:w-auto m-2 es:m-0"
+        >
+          <div class="flex justify-between">
+            <p class="font-semibold text-blueviolet text-xl">Wallet</p>
+            <p>
+              <i
+                class="fa-solid fa-wallet bg-blueviolet px-2 py-1 font-semibold rounded-sm"
+              >
+              </i>
+            </p>
+          </div>
+          <p class="mt-6" style="color: green">
+            <span class="text-xl"><i class="fa-solid fa-dollar-sign"></i></span
+            ><span class="relative -top-1 text-sm"> USDT</span>
+          </p>
+          <p class="text-2xl text-whitesmoke font-semibold mb-4">9784.79</p>
 
-        <div>
+          <div>
+            <a
+              href=""
+              class="bg-blueviolet border text-whitesmoke border-blueviolet rounded-sm px-3 esm:px-5 py-1"
+              >Send &nbsp; <i class="fa-solid fa-arrow-up font-semibold"> </i
+            ></a>
+            <a
+              href=""
+              class="bg-blueviolet text-whitesmoke border border-blueviolet rounded-sm px-3 esm:px-5 py-1"
+              >Receive &nbsp;
+              <i class="fa-solid fa-arrow-down font-semibold"> </i
+            ></a>
+            <a
+              href=""
+              class="bg-blueviolet text-whitesmoke border border-blueviolet rounded-sm px-3 esm:px-5 py-1"
+              >Swap &nbsp;
+              <i class="fa-solid fa-arrows-rotate font-semibold"> </i
+            ></a>
+            <a
+              href=""
+              class="bg-blueviolet text-whitesmoke border border-blueviolet rounded-sm px-3 esm:px-5 py-1"
+              ><i class="fa-solid fa-plus font-semibold"> </i
+            ></a>
+          </div>
+          <br />
           <table class="w-full text-sm border-none">
             <thead>
               <tr class="bg-darkgrey rounded-sm border-dark border-b-2 text-sm">
-                <td class="p-2 text-whitesmoke">NAME</td>
-                <td class="text-right text-whitesmoke">PRICE</td>
-                <td class="text-right text-whitesmoke">24H</td>
+                <td class="p-2 text-whitesmoke">Cryptocurrency</td>
+
                 <td class="text-right text-whitesmoke mt-2 hidden es:block">
-                  MARKET CAP
+                  Balance
                 </td>
-                <td class="text-right pr-3 text-whitesmoke">TRADE</td>
               </tr>
             </thead>
             <tbody class="font-semibold text-sm">
@@ -241,15 +280,8 @@
                   ></i>
                   Bitcoin (BTC)
                 </td>
-                <td class="text-right"><span id="bitprice"></span></td>
-                <td class="text-right"><span id="bit_change"></span></td>
-                <td class="text-right hidden es:block es:pt-3">
-                  $ <span id="bitcap"></span>
-                </td>
-                <td class="text-right pr-1 esm:pr-3">
-                  <i class="fa-solid fa-plus font-semibold text-md"></i>
-                  &nbsp;&nbsp;
-                  <i class="fa-solid fa-ellipsis text-whitesmoke"></i>
+                <td class="text-right hidden es:block pr-2 es:pt-3">
+                  0.0000000
                 </td>
               </tr>
               <tr class="bg-darkgrey rounded-sm border-dark border-b-2">
@@ -257,15 +289,8 @@
                   <i class="fa-brands fa-ethereum pr-2 text-whitesmoke"></i>
                   Ethereum (ETH)
                 </td>
-                <td class="text-right"><span id="ethprice"></span></td>
-                <td class="text-right"><span id="eth_change"></span></td>
-                <td class="text-right hidden es:block es:pt-3">
-                  $ <span id="ethcap"></span>
-                </td>
-                <td class="text-right pr-1 esm:pr-3">
-                  <i class="fa-solid fa-plus font-semibold text-md"></i>
-                  &nbsp;&nbsp;
-                  <i class="fa-solid fa-ellipsis text-whitesmoke"></i>
+                <td class="text-right hidden es:block pr-2 es:pt-3">
+                  0.0000000
                 </td>
               </tr>
               <tr class="bg-darkgrey rounded-sm border-dark border-b-2">
@@ -276,15 +301,9 @@
                   ></i>
                   Litecoin (LTC)
                 </td>
-                <td class="text-right"><span id="liteprice"></span></td>
-                <td class="text-right"><span id="lite_change"></span></td>
-                <td class="text-right hidden es:block es:pt-3">
-                  $ <span id="litecap"></span>
-                </td>
-                <td class="text-right pr-1 esm:pr-3">
-                  <i class="fa-solid fa-plus font-semibold text-md"></i>
-                  &nbsp;&nbsp;
-                  <i class="fa-solid fa-ellipsis text-whitesmoke"></i>
+
+                <td class="text-right hidden es:block pr-2 es:pt-3">
+                  0.0000000
                 </td>
               </tr>
               <tr class="bg-darkgrey rounded-sm border-dark border-b-2">
@@ -295,15 +314,21 @@
                   ></i
                   >Polkadot (DOT)
                 </td>
-                <td class="text-right"><span id="polkprice"></span></td>
-                <td class="text-right"><span id="polk_change"></span></td>
-                <td class="text-right hidden es:block es:pt-3">
-                  $ <span id="polkcap"></span>
+
+                <td class="text-right hidden es:block pr-2 es:pt-3">
+                  0.0000000
                 </td>
-                <td class="text-right px-1 esm:pr-3">
-                  <i class="fa-solid fa-plus font-semibold text-md"></i>
-                  &nbsp;&nbsp;
-                  <i class="fa-solid fa-ellipsis text-whitesmoke"></i>
+              </tr>
+              <tr class="bg-darkgrey rounded-sm border-dark border-b-2">
+                <td class="p-2 esm:p-3">
+                  <i
+                    class="fa-solid fa-dollar-sign pr-2"
+                    style="color: green"
+                  ></i>
+                  <span> USDT</span>
+                </td>
+                <td class="text-right hidden pr-2 es:block es:pt-3">
+                  $ 9748.79
                 </td>
               </tr>
               <tr class="bg-darkgrey rounded-sm border-dark border-b-2">
@@ -313,19 +338,13 @@
                   >
                   <span> Chainlink (LINK)</span>
                 </td>
-                <td class="text-right"><span id="chainprice"></span></td>
-                <td class="text-right"><span id="chain_change"></span></td>
-                <td class="text-right hidden es:block es:pt-3">
-                  $ <span id="chaincap"></span>
-                </td>
-                <td class="text-right pr-1 sm:pr-3">
-                  <i class="fa-solid fa-plus font-semibold text-md"></i>
-                  &nbsp;&nbsp;
-                  <i class="fa-solid fa-ellipsis text-whitesmoke"></i>
+                <td class="text-right hidden pr-2 es:block es:pt-3">
+                  0.0000000
                 </td>
               </tr>
             </tbody>
           </table>
+          <br /><br />
         </div>
       </section>
       <section class="es:w-full md:w-60">
@@ -336,18 +355,13 @@
             class="pr-8 pt-6 pl-4 bg-darkgrey rounded-md es:w-60 md:w-auto m-2 es:m-0"
           >
             <div class="flex justify-between">
-              <p class="font-semibold text-xl">Balances</p>
+              <p class="font-semibold text-xl">Card</p>
               <p>
                 <i
-                  class="fa-solid fa-plus bg-blueviolet px-2 py-1 font-semibold rounded-sm"
+                  class="fa-solid fa-credit-card text-blueviolet px-2 py-1 font-semibold rounded-sm"
                 ></i>
               </p>
             </div>
-            <p class="mt-6">
-              <span class="text-blueviolet text-xl">$</span
-              ><span class="relative -top-1 text-sm"> Dollar</span>
-            </p>
-            <p class="text-2xl text-blueviolet font-semibold mb-4">9784.79</p>
 
             <div class="mt-12">
               <div
@@ -399,6 +413,11 @@
               <br /><br />
             </div>
           </div>
+        </div>
+
+        <div
+          class="es:flex md:block es:justify-between es:p-2 es:gap-x-2 md:p-0 md:gap-x-0"
+        >
           <div class="">
             <p class="font-semibold mt-4 py-2 text-center es:text-left">
               Convert
@@ -487,6 +506,5 @@
       </div>
     </footer>
     <script src="index.js"></script>
-    <script src="chart.js"></script>
   </body>
 </html>

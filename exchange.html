@@ -108,13 +108,10 @@
         <nav
           class="md:w-12 bg-darkgrey md:text-center mt-20 flex flex-col gap-y-2 text-dark py-6 nav overflow-hidden md:hover:w-40 md:hover:mt-1 md:hover:rounded-md"
         >
-          <button
-            class="mb-4 border-l-2 border-blueviolet md:pl-0 w-32 bg-dark w-48"
-            onclick="window.location.href='dashboard.html'"
-          >
-            <p class="flex ml-4 gap-x-2 text-blueviolet">
-              <span class="self-center">
-                <i class="fa-solid fa-bars-progress text-light text-xl"></i
+          <button class="mb-4" onclick="window.location.href='dashboard.html'">
+            <p class="flex ml-4 gap-x-2 text-light">
+              <span class="self-center text-center">
+                <i class="fa-solid fa-bars-progress text-xl"></i
               ></span>
               <span class="text-md ml-2 font-semibold self-center"
                 >Dashboard</span
@@ -142,10 +139,14 @@
               >
             </p>
           </button>
-          <button class="mb-4" onclick="window.location.href='exchange.html'">
-            <p class="flex ml-4 gap-x-2 text-light">
-              <span class="self-center text-center">
-                <i class="fa-solid fa-arrows-rotate text-xl"></i
+
+          <button
+            class="mb-4 border-l-2 border-blueviolet md:pl-0 w-32 bg-dark w-48"
+            onclick="window.location.href='exchange.html'"
+          >
+            <p class="flex ml-4 gap-x-2 text-blueviolet">
+              <span class="self-center">
+                <i class="fa-solid fa-arrows-rotate text-light text-xl"></i
               ></span>
               <span class="text-md ml-2 font-semibold self-center"
                 >Exchange</span
@@ -216,116 +217,84 @@
         </button>
       </section>
       <section class="md:w-3/4 w-full">
-        <canvas id="chart" style="width: 100%; height: 380px" class=""></canvas>
         <br />
-
-        <div>
-          <table class="w-full text-sm border-none">
-            <thead>
-              <tr class="bg-darkgrey rounded-sm border-dark border-b-2 text-sm">
-                <td class="p-2 text-whitesmoke">NAME</td>
-                <td class="text-right text-whitesmoke">PRICE</td>
-                <td class="text-right text-whitesmoke">24H</td>
-                <td class="text-right text-whitesmoke mt-2 hidden es:block">
-                  MARKET CAP
-                </td>
-                <td class="text-right pr-3 text-whitesmoke">TRADE</td>
-              </tr>
-            </thead>
-            <tbody class="font-semibold text-sm">
-              <tr class="bg-darkgrey rounded-sm border-dark border-b-2">
-                <td class="p-2 esm:p-3">
-                  <i
-                    class="fa-solid fa-bitcoin-sign pr-2"
-                    style="color: gold"
-                  ></i>
-                  Bitcoin (BTC)
-                </td>
-                <td class="text-right"><span id="bitprice"></span></td>
-                <td class="text-right"><span id="bit_change"></span></td>
-                <td class="text-right hidden es:block es:pt-3">
-                  $ <span id="bitcap"></span>
-                </td>
-                <td class="text-right pr-1 esm:pr-3">
-                  <i class="fa-solid fa-plus font-semibold text-md"></i>
-                  &nbsp;&nbsp;
-                  <i class="fa-solid fa-ellipsis text-whitesmoke"></i>
-                </td>
-              </tr>
-              <tr class="bg-darkgrey rounded-sm border-dark border-b-2">
-                <td class="p-2 esm:p-3">
-                  <i class="fa-brands fa-ethereum pr-2 text-whitesmoke"></i>
-                  Ethereum (ETH)
-                </td>
-                <td class="text-right"><span id="ethprice"></span></td>
-                <td class="text-right"><span id="eth_change"></span></td>
-                <td class="text-right hidden es:block es:pt-3">
-                  $ <span id="ethcap"></span>
-                </td>
-                <td class="text-right pr-1 esm:pr-3">
-                  <i class="fa-solid fa-plus font-semibold text-md"></i>
-                  &nbsp;&nbsp;
-                  <i class="fa-solid fa-ellipsis text-whitesmoke"></i>
-                </td>
-              </tr>
-              <tr class="bg-darkgrey rounded-sm border-dark border-b-2">
-                <td class="p-2 esm:p-3">
-                  <i
-                    class="fa-solid fa-litecoin-sign pr-2"
-                    style="color: lightblue"
-                  ></i>
-                  Litecoin (LTC)
-                </td>
-                <td class="text-right"><span id="liteprice"></span></td>
-                <td class="text-right"><span id="lite_change"></span></td>
-                <td class="text-right hidden es:block es:pt-3">
-                  $ <span id="litecap"></span>
-                </td>
-                <td class="text-right pr-1 esm:pr-3">
-                  <i class="fa-solid fa-plus font-semibold text-md"></i>
-                  &nbsp;&nbsp;
-                  <i class="fa-solid fa-ellipsis text-whitesmoke"></i>
-                </td>
-              </tr>
-              <tr class="bg-darkgrey rounded-sm border-dark border-b-2">
-                <td class="p-2 esm:p-3">
-                  <i
-                    class="fa-solid fa-spinner pr-2"
-                    style="color: rgb(216, 94, 165)"
-                  ></i
-                  >Polkadot (DOT)
-                </td>
-                <td class="text-right"><span id="polkprice"></span></td>
-                <td class="text-right"><span id="polk_change"></span></td>
-                <td class="text-right hidden es:block es:pt-3">
-                  $ <span id="polkcap"></span>
-                </td>
-                <td class="text-right px-1 esm:pr-3">
-                  <i class="fa-solid fa-plus font-semibold text-md"></i>
-                  &nbsp;&nbsp;
-                  <i class="fa-solid fa-ellipsis text-whitesmoke"></i>
-                </td>
-              </tr>
-              <tr class="bg-darkgrey rounded-sm border-dark border-b-2">
-                <td class="p-2 esm:p-3">
-                  <span class="pr-2" style="color: rgb(69, 76, 172)"
-                    >&#x2B22;</span
+        <div class="flex justify-evenly flex-col">
+          <section class="mb-4 m-auto self-center">
+            <h1 class="text-center text-3xl font-semibold mb-4">
+              Exchange Crypto
+            </h1>
+            <div class="flex flex-col w-80 gap-y-2">
+              <div>
+                <i
+                  class="fa-solid fa-arrows-rotate text-2xl absolute text-blueviolet px-2 py-1 rounded-full bg-light"
+                  style="margin-top: 4.5rem; margin-left: 8.5rem"
+                ></i>
+              </div>
+              <div class="flex gap-x-2">
+                <div
+                  class="bg-darkgrey p-4 w-48 h-20 rounded-md border border-trans"
+                >
+                  <select
+                    name=""
+                    id="selector1"
+                    class="text-light text-lg bg-darkgrey w-full"
                   >
-                  <span> Chainlink (LINK)</span>
-                </td>
-                <td class="text-right"><span id="chainprice"></span></td>
-                <td class="text-right"><span id="chain_change"></span></td>
-                <td class="text-right hidden es:block es:pt-3">
-                  $ <span id="chaincap"></span>
-                </td>
-                <td class="text-right pr-1 sm:pr-3">
-                  <i class="fa-solid fa-plus font-semibold text-md"></i>
-                  &nbsp;&nbsp;
-                  <i class="fa-solid fa-ellipsis text-whitesmoke"></i>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+                    <option value="bit">Bitcoin</option>
+                    <option value="eth">Ethereum</option>
+                    <option value="lite">Litecoin</option>
+                    <option value="polk">Polkadot</option>
+                    <option value="chain">Chainlink</option>
+                  </select>
+                </div>
+                <div
+                  class="bg-darkgrey p-4 w-48 h-20 rounded-md border border-trans"
+                >
+                  <select
+                    name=""
+                    id="selector2"
+                    class="text-light text-lg bg-darkgrey w-full"
+                  >
+                    <option value="usdt">usdt</option>
+                  </select>
+                </div>
+              </div>
+              <div class="flex gap-x-2">
+                <div
+                  class="bg-darkgrey p-4 w-48 h-20 rounded-md border border-trans"
+                >
+                  <p class="text-blueviolet">You get</p>
+                  <p class="text-lg font-semibold">
+                    <input
+                      type="number"
+                      class="bg-darkgrey w-full"
+                      placeholder="0.0000"
+                      id="input1"
+                      disabled
+                    />
+                  </p>
+                </div>
+                <div
+                  class="bg-darkgrey p-4 w-48 h-20 rounded-md border border-trans"
+                >
+                  <p class="text-blueviolet">You send</p>
+                  <p class="text-lg font-semibold">
+                    <input
+                      type="number"
+                      class="bg-darkgrey w-20 border border-trans rounded-sm"
+                      placeholder="0.0000"
+                      id="input2"
+                    />
+                  </p>
+                </div>
+              </div>
+              <button
+                class="w-full bg-blueviolet py-1 font-semibold rounded-md"
+                id="exchangeBtn"
+              >
+                Exchange
+              </button>
+            </div>
+          </section>
         </div>
       </section>
       <section class="es:w-full md:w-60">
@@ -349,55 +318,7 @@
             </p>
             <p class="text-2xl text-blueviolet font-semibold mb-4">9784.79</p>
 
-            <div class="mt-12">
-              <div
-                class="bg-blueviolet w-48 m-auto es:w-full h-32 rounded-md p-3"
-              >
-                <section class="flex justify-between">
-                  <div>
-                    <p></p>
-                  </div>
-                  <div class="flex w-12">
-                    <p class="w-6 h-6 bg-light rounded-full"></p>
-                    <p class="w-6 h-6 bg-whitesmoke -ml-3 rounded-full"></p>
-                  </div>
-                </section>
-                <div class="mt-12">
-                  <p class="flex text-whitesmoke">
-                    <small>mm&nbsp;</small>
-                    <small>&nbsp;yr</small>
-                  </p>
-                  <p class="text-md font-semibold -mt-2">05/25</p>
-                </div>
-              </div>
-              <div
-                class="bg-whitesmoke w-48 es:w-full m-auto h-32 rounded-md p-3 es:ml-2 -mt-32 ml-auto mr:auto"
-                style="
-                  transform: rotate(20deg);
-                  background-color: rgb(180, 135, 223);
-                  box-shadow: 1px 2px 20px 5px rgba(128, 128, 128, 0.822) inset;
-                "
-              >
-                <section class="flex justify-between">
-                  <div>
-                    <p class="text-lg">Glas</p>
-                  </div>
-                  <div class="flex w-12">
-                    <p class="w-6 h-6 bg-light rounded-full"></p>
-                    <p class="w-6 h-6 bg-whitesmoke -ml-3 rounded-full"></p>
-                  </div>
-                </section>
-                <p class="font-semibold mt-4">781221390823XXXX</p>
-                <div class="mt-1">
-                  <p class="flex text-whitesmoke">
-                    <small>mm&nbsp;</small>
-                    <small>&nbsp;yr</small>
-                  </p>
-                  <p class="text-md font-semibold -mt-2">05/25</p>
-                </div>
-              </div>
-              <br /><br />
-            </div>
+            <br />
           </div>
           <div class="">
             <p class="font-semibold mt-4 py-2 text-center es:text-left">
@@ -487,6 +408,5 @@
       </div>
     </footer>
     <script src="index.js"></script>
-    <script src="chart.js"></script>
   </body>
 </html>

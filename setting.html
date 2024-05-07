@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+      integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <title>crypto</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Kablammo&family=Kelly+Slab&display=swap");
+      .logo {
+        font-family: "Kablammo", cursives;
+      }
+      .logo2 {
+        font-family: "Kelly Slab", cursives;
+        color: rgb(152, 84, 216);
+      }
+      #index {
+        z-index: 5;
+      }
+      .nav:hover + .detail {
+        display: block !important;
+      }
+      .halfdoughnut {
+        height: 100px;
+        width: 200px;
+        margin: 1em auto;
+        overflow: hidden;
+      }
+      @media screen and (min-width: 768px) {
+        .nav {
+          border-top-right-radius: 10rem;
+          border-bottom-right-radius: 10rem;
+        }
+      }
+      @media screen and (max-width: 768px) {
+        .nav {
+          height: 100vh;
+        }
+      }
+    </style>
+  </head>
+  <body class="text-light bg-dark">
+    <header
+      class="flex justify-between gap-x-3 px-2 md:px-4 lg:px-8 py-4 flex-row w-full top-0"
+      id="header"
+      style="z-index: 10"
+    >
+      <div class="md:hidden self-center">
+        <button id="menu_btn">
+          <i class="fa-solid fa-bars text-2xl text-blueviolet"></i>
+        </button>
+      </div>
+      <section class="w-2/3 flex justify-between gap-x-2">
+        <div class="">
+          <h1 class="text-4xl text-blueviolet">
+            <b class="logo">3</b><b class="logo2">crypto</b>
+          </h1>
+        </div>
+        <div
+          class="absolute top-20 left-2 md:relative md:top-0 md:left-0"
+          id="hide"
+        >
+          <h2 class="text-xl font-semibold">Hello Fahim</h2>
+          <p class="text-sm text-whitesmoke pt-2">Welcome to 3crypto</p>
+        </div>
+        <div
+          class="self-center absolute es:relative top-24 right-2 es:top-0 es:right-0"
+          id="hid"
+        >
+          <p class="absolute ml-2 mt-1">
+            <i
+              class="fa-solid fa-magnifying-glass text-whitesmoke text-blueviolet"
+            ></i>
+          </p>
+          <p>
+            <input
+              type="text"
+              name=""
+              id=""
+              class="bg-darkgrey pl-8 pr-2 rounded-md py-1 text-blueviolet w-32 md:w-auto"
+              placeholder="Search Coin"
+            />
+          </p>
+        </div>
+      </section>
+      <div class="flex self-center gap-x-2" id="index">
+        <p class="text-lg font-semibold">Fahim</p>
+        <p><i class="fa-solid fa-user bg-darkgrey xl px-3 py-2"></i></p>
+      </div>
+    </header>
+    <main
+      class="md:mt-2 flex gap-x-2 gap-y-2 justify-between md:pr-2 flex-col md:flex-row mt-24"
+    >
+      <section
+        class="fixed md:relative md\:block -top-2 md\:top-0 w-full md:w-auto bg-darkgrey md:bg-transparent hidden md:block"
+        style="z-index: 3"
+        id="nav"
+      >
+        <nav
+          class="md:w-12 bg-darkgrey md:text-center mt-20 flex flex-col gap-y-2 text-dark py-6 nav overflow-hidden md:hover:w-40 md:hover:mt-1 md:hover:rounded-md"
+        >
+          <button class="mb-4" onclick="window.location.href='dashboard.html'">
+            <p class="flex ml-4 gap-x-2 text-light">
+              <span class="self-center text-center">
+                <i class="fa-solid fa-bars-progress text-xl"></i
+              ></span>
+              <span class="text-md ml-2 font-semibold self-center"
+                >Dashboard</span
+              >
+            </p>
+          </button>
+
+          <button class="mb-4">
+            <p class="flex ml-4 gap-x-2 text-light">
+              <span class="self-center">
+                <i class="fa-solid fa-bell text-xl"></i
+              ></span>
+              <span class="text-md ml-2 font-semibold self-center"
+                >Notification</span
+              >
+            </p>
+          </button>
+          <button class="mb-4">
+            <p class="flex ml-4 gap-x-2 text-light">
+              <span class="self-center selector text-center">
+                <i class="fa-solid fa-calendar text-xl"></i
+              ></span>
+              <span class="text-md ml-2 font-semibold self-center"
+                >Schedule</span
+              >
+            </p>
+          </button>
+          <button class="mb-4" onclick="window.location.href='exchange.html'">
+            <p class="flex ml-4 gap-x-2 text-light">
+              <span class="self-center">
+                <i class="fa-solid fa-arrows-rotate text-xl"></i
+              ></span>
+              <span class="text-md ml-2 font-semibold self-center"
+                >Exchange</span
+              >
+            </p>
+          </button>
+          <button class="mb-4" onclick="window.location.href='market.html'">
+            <p class="flex ml-4 gap-x-2 text-light">
+              <span class="self-center text-center">
+                <i class="fa-solid fa-chart-line text-xl"></i
+              ></span>
+              <span class="text-md ml-2 font-semibold self-center">Market</span>
+            </p>
+          </button>
+
+          <button class="mb-4" onclick="window.location.href='wallet.html'">
+            <p class="flex ml-4 gap-x-2 text-light">
+              <span class="self-center">
+                <i class="fa-solid fa-wallet text-xl"></i
+              ></span>
+              <span class="text-md ml-2 font-semibold self-center">Wallet</span>
+            </p>
+          </button>
+          <button class="mb-4">
+            <p class="flex ml-4 gap-x-2 text-light">
+              <span class="self-center">
+                <i class="fa-solid fa-newspaper text-xl"></i
+              ></span>
+              <span class="text-md ml-2 font-semibold self-center"
+                >Schedule</span
+              >
+            </p>
+          </button>
+
+          <button
+            class="mb-4 border-l-2 border-blueviolet md:pl-0 w-32 bg-dark w-48"
+            onclick="window.location.href='setting.html'"
+          >
+            <p class="flex ml-4 gap-x-2 text-blueviolet">
+              <span class="self-center">
+                <i class="fa-solid fa-gear text-light text-xl"></i
+              ></span>
+              <span class="text-md ml-2 font-semibold self-center"
+                >Settings</span
+              >
+            </p>
+          </button>
+          <button class="mb-4">
+            <p class="flex ml-4 gap-x-2 text-light">
+              <span class="self-center text-center">
+                <i class="fa-solid fa-circle-question text-xl"></i
+              ></span>
+              <span class="text-md ml-2 font-semibold self-center">Help</span>
+            </p>
+          </button>
+          <button class="mb-4">
+            <p class="flex ml-5 gap-x-2 text-blueviolet">
+              <span class="self-center selector text-center">
+                <i class="fa-solid fa-arrow-right-from-bracket text-lg"></i
+              ></span>
+              <span class="text-base ml-2 font-semibold self-center"
+                >Log Out</span
+              >
+            </p>
+          </button>
+        </nav>
+
+        <button
+          class="md:mt-12 px-2 rounded-md font-semibold py-1 bg-blueviolet w-16"
+        >
+          <small>Get Pro</small>
+        </button>
+      </section>
+      <section class="w-full">
+        <br />
+        <div
+          class="pr-8 pt-6 pl-4 bg-darkgrey rounded-md es:w-60 md:w-auto m-2 es:m-0"
+        >
+          <div class="flex justify-between">
+            <p class="font-semibold text-blueviolet text-xl">Settings</p>
+            <p>
+              <i
+                class="fa-solid fa-gear bg-blueviolet px-2 py-1 font-semibold rounded-sm"
+              >
+              </i>
+            </p>
+          </div>
+          <br />
+          <table class="w-full text-sm border-none">
+            <thead>
+              <tr class="bg-darkgrey rounded-sm border-dark text-sm">
+                <td class="p-2 text-whitesmoke"></td>
+
+                <td
+                  class="text-right text-whitesmoke mt-2 hidden es:block"
+                ></td>
+              </tr>
+            </thead>
+            <tbody class="font-semibold text-sm text-whitesmoke">
+              <tr class="bg-darkgrey rounded-sm border-dark">
+                <td class="p-2 esm:p-3">Theme</td>
+                <td class="text-right hidden es:block pr-2 es:pt-3">
+                  <span class="pr-2" style="color: rgb(21, 21, 21)"
+                    >&#x2B22;</span
+                  >dark
+                </td>
+              </tr>
+              <tr class="bg-darkgrey rounded-sm border-dark">
+                <td class="p-2 esm:p-3">Edit Information</td>
+              </tr>
+              <tr class="bg-darkgrey rounded-sm border-dark">
+                <td class="p-2 esm:p-3">Chart Type</td>
+                <td class="text-right hidden es:block pr-2 es:pt-3">Line</td>
+              </tr>
+              <tr class="bg-darkgrey rounded-sm border-dark">
+                <td class="p-2 esm:p-3">2-factor-auth</td>
+              </tr>
+              <tr class="bg-darkgrey rounded-sm border-dark">
+                <td class="p-2 esm:p-3">Change Password</td>
+                <td class="text-right hidden es:block pr-2 es:pt-3">******</td>
+              </tr>
+
+              <tr class="bg-darkgrey rounded-sm border-dark">
+                <td class="p-2 esm:p-3">Account Settings</td>
+              </tr>
+              <tr class="bg-darkgrey rounded-sm border-dark">
+                <td class="p-2 esm:p-3">Import Wallet</td>
+              </tr>
+              <tr class="bg-darkgrey rounded-sm border-dark">
+                <td class="p-2 esm:p-3">Card</td>
+                <td class="text-right hidden es:block pr-2 es:pt-3">2 saved</td>
+              </tr>
+              <tr class="bg-darkgrey rounded-sm border-dark">
+                <td class="p-2 esm:p-3">Currrency</td>
+                <td class="text-right hidden es:block pr-2 es:pt-3">USD</td>
+              </tr>
+              <tr class="bg-darkgrey rounded-sm border-dark">
+                <td class="p-2 esm:p-3">Delete Account</td>
+                <td class="text-right hidden es:block pr-2 es:pt-3">
+                  <a
+                    href=""
+                    class="text-light rounded-sm px-3 esm:px-5 py-1"
+                    style="background-color: darkred"
+                    >delete</a
+                  >
+                </td>
+              </tr>
+              <tr class="bg-darkgrey rounded-sm border-dark">
+                <td></td>
+                <td class="text-sm text-right hidden es:block pr-2 es:pt-3">
+                  v 2.0.3
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <br /><br />
+        </div>
+      </section>
+    </main>
+    <br /><br /><br />
+    <footer class="bg-darkgrey px-4 lg:px-12 py-2 text-center">
+      <h1 class="text-3xl m-auto md:m-0 text-blueviolet font-bold logo">
+        <b class="logo">3</b><b class="logo2">crypto</b>
+      </h1>
+      <p class="text-base my-6">
+        <i class="fa-brands fa-instagram text-blueviolet"></i>&nbsp;&nbsp;
+        <i class="fa-brands fa-telegram text-blueviolet"></i>&nbsp;
+        <i class="fa-brands fa-facebook text-blueviolet"></i>&nbsp;
+        <i class="fa-brands fa-twitter text-blueviolet"></i>
+      </p>
+      <div class="text-sm text-whitesmoke">
+        ©Copyright 2023 <b class="text-blueviolet">AzeezCode</b>. All rights
+        reserved
+      </div>
+    </footer>
+    <script src="index.js"></script>
+  </body>
+</html>
